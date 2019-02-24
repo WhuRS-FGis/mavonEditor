@@ -285,10 +285,13 @@ export default {
     mounted() {
         var $vm = this;
         this.$el.addEventListener('paste', function (e) {
-            $vm.$paste(e);
+            $vm.$emit("paste", e);
         })
         this.$el.addEventListener('drop', function (e) {
-            $vm.$drag(e);
+            $vm.$emit("drop", e);
+        })
+        this.$el.addEventListener('drapover', function (e) {
+            $vm.$emit("drop", e);
         })
         // 浏览器siz大小
        /* windowResize(this); */
